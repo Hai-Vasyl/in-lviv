@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import cors from "cors"
 import userRoutes from "./routes/users"
+import placeRoutes from "./routes/places"
 import { config } from "dotenv"
 config()
 
@@ -27,6 +28,7 @@ const { MONGO_DB, MONGO_PASS, MONGO_USER, NODE_ENV, PORT } = process.env
     )
 
     app.use("/auth", userRoutes)
+    app.use("/place", placeRoutes)
 
     app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))
   } catch (error) {
