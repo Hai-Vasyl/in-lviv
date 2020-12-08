@@ -23,8 +23,13 @@ const Auth: React.FC<IAuthProps> = ({ route, navigation }) => {
   } = useSelector((state: RootStore) => state)
   const [form, setForm] = useState([
     { param: "username", value: "", msg: "", title: "Username" },
-    { param: "email", value: "", msg: "", title: "Email address" },
-    { param: "password", value: "", msg: "", title: "Password" },
+    {
+      param: "email",
+      value: "vasyl.hai20@gmail.com",
+      msg: "",
+      title: "Email address",
+    },
+    { param: "password", value: "vasyl.hai", msg: "", title: "Password" },
   ])
   const [isLogin, setIsLogin] = useState(true)
 
