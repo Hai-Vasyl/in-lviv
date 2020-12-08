@@ -9,6 +9,7 @@ import Home from "../screens/Home"
 import Place from "../screens/Place"
 import Places from "../screens/Places"
 import User from "../screens/User"
+import UserEdit from "../screens/UserEdit"
 import Users from "../screens/Users"
 import { useSelector } from "react-redux"
 import { RootStore } from "../redux/store"
@@ -44,9 +45,10 @@ const Routes = () => {
     ...mainRoutes,
     { name: "CreatePlace", component: CreatePlace },
     { name: "EditPlace", component: EditPlace },
+    { name: "UserEdit", component: UserEdit },
   ]
 
-  const userRoutes = [...mainRoutes]
+  const userRoutes = [...mainRoutes, { name: "UserEdit", component: UserEdit }]
 
   const unRegRouter = [...mainRoutes, { name: "Auth", component: Auth }]
 

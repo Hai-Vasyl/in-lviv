@@ -1,10 +1,20 @@
 import React from "react"
 import { View, Text } from "react-native"
+import styleBase from "../styles/base"
+import Tabs from "../components/Tabs"
 
-const Places: React.FC = () => {
+interface IPlacesProps {
+  navigation: any
+  route: any
+}
+
+const Places: React.FC<IPlacesProps> = ({ navigation, route }) => {
   return (
-    <View>
-      <Text>Places screen</Text>
+    <View style={styleBase.wrapper}>
+      <View style={styleBase.container}>
+        <Text>Places screen</Text>
+      </View>
+      <Tabs route={route} navigation={navigation} />
     </View>
   )
 }

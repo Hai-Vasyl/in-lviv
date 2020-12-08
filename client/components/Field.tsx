@@ -1,5 +1,6 @@
 import React from "react"
 import { TextInput, Text, View } from "react-native"
+import styles from "../styles/Field"
 
 interface IFieldProps {
   msg?: string
@@ -19,26 +20,9 @@ const Field: React.FC<IFieldProps> = ({
   exStyle,
 }) => {
   return (
-    <View style={[{ marginBottom: 7 }, exStyle]}>
-      <Text
-        style={{
-          fontSize: 17,
-          paddingVertical: 4,
-        }}
-      >
-        {title}
-      </Text>
-      <TextInput
-        value={value}
-        style={{
-          borderWidth: 1,
-          borderColor: "lightgrey",
-          padding: 5,
-          fontSize: 19,
-          backgroundColor: "whitesmoke",
-        }}
-        onChangeText={change}
-      />
+    <View style={[styles.wrapper, exStyle]}>
+      <Text style={styles.title}>{title}</Text>
+      <TextInput value={value} style={styles.input} onChangeText={change} />
       {isErrorField && <Text style={{ color: "red" }}>{msg}</Text>}
     </View>
   )

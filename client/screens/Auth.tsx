@@ -9,12 +9,14 @@ import { RootStore } from "../redux/store"
 import { CLEAR_ERROR_AUTH, RESET_ERRORS_AUTH } from "../redux/types/auth"
 // @ts-ignore
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
+import Tabs from "../components/Tabs"
 
 interface IAuthProps {
   navigation: any
+  route: any
 }
 
-const Auth: React.FC<IAuthProps> = ({ navigation }) => {
+const Auth: React.FC<IAuthProps> = ({ route, navigation }) => {
   const dispatch = useDispatch()
   const {
     auth: { token, loading, errors },
@@ -69,8 +71,8 @@ const Auth: React.FC<IAuthProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={{ justifyContent: "center", flex: 1 }}>
-      <View style={styleBase.container}>
+    <View style={styleBase.wrapper}>
+      <View style={[styleBase.container]}>
         <View style={styleBase.title}>
           <Icon
             name={isLogin ? "login-variant" : "checkbox-marked-circle-outline"}
@@ -112,6 +114,7 @@ const Auth: React.FC<IAuthProps> = ({ navigation }) => {
           />
         </View>
       </View>
+      <Tabs navigation={navigation} route={route} />
     </View>
   )
 }

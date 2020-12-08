@@ -1,10 +1,20 @@
 import React from "react"
 import { View, Text } from "react-native"
+import styleBase from "../styles/base"
+import Tabs from "../components/Tabs"
 
-const User: React.FC = () => {
+interface IUserProps {
+  navigation: any
+  route: any
+}
+
+const User: React.FC<IUserProps> = ({ route, navigation }) => {
   return (
-    <View>
-      <Text>User screen</Text>
+    <View style={styleBase.wrapper}>
+      <View style={styleBase.container}>
+        <Text>User screen</Text>
+      </View>
+      <Tabs route={route} navigation={navigation} />
     </View>
   )
 }

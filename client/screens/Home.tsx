@@ -9,12 +9,14 @@ import styles from "../styles/Home"
 import imgMain from "../images/undraw_quite_town_mg2q.png"
 // @ts-ignore
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
+import Tabs from "../components/Tabs"
 
 interface IHomeProps {
   navigation: any
+  route: any
 }
 
-const Home: React.FC<IHomeProps> = ({ navigation }) => {
+const Home: React.FC<IHomeProps> = ({ route, navigation }) => {
   const {
     auth: { user, token },
   } = useSelector((state: RootStore) => state)
@@ -30,7 +32,7 @@ const Home: React.FC<IHomeProps> = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.wrapper}>
+    <View style={styleBase.wrapper}>
       <View style={[styleBase.container]}>
         <View style={styles.content}>
           <View style={styles.logotype}>
@@ -57,6 +59,7 @@ const Home: React.FC<IHomeProps> = ({ navigation }) => {
           />
         </View>
       </View>
+      <Tabs navigation={navigation} route={route} />
     </View>
   )
 }
