@@ -107,7 +107,7 @@ const User: React.FC<IUserProps> = ({ route, navigation }) => {
     )
   }
   return (
-    <View style={styleBase.wrapper}>
+    <View style={[styleBase.wrapper]}>
       <View style={[styleBase.container, styles.container]}>
         <View style={styles.avaContainer}>
           <Image source={{ uri: exUserData.ava }} style={styles.avatar} />

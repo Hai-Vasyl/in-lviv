@@ -7,7 +7,7 @@ export default StyleSheet.create({
   },
   container: {
     padding: 15,
-    marginBottom: 65,
+    paddingBottom: 80,
   },
   btns: {
     flexDirection: "row",

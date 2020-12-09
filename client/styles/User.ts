@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
-  container: { alignItems: "center" },
+  container: {
+    alignItems: "center",
+  },
   userIcon: {
     position: "absolute",
     bottom: 10,

@@ -1,5 +1,11 @@
 import { Router } from "express"
-import { create_place, update_place, delete_place } from "../controllers/places"
+import {
+  create_place,
+  update_place,
+  delete_place,
+  get_places,
+  get_place,
+} from "../controllers/places"
 import auth from "../middlewares/auth.middleware"
 import { check } from "express-validator"
 
@@ -30,5 +36,9 @@ router.post(
 )
 
 router.delete("/delete-place/:placeId", auth, delete_place)
+
+router.get("/get-places", get_places)
+
+router.get("/get-place/:placeId", get_place)
 
 export default router

@@ -43,6 +43,27 @@ export const update_place = async (req: any, res: any) => {
   }
 }
 
+export const get_places = async (req: any, res: any) => {
+  try {
+    const places = await Place.find().select("title image location")
+
+    res.json(places)
+  } catch (error) {
+    res.status(400).json(`Getting all places error: ${error.message}`)
+  }
+}
+
+export const get_place = async (req: any, res: any) => {
+  try {
+    const { placeId } = req.params
+    const place = await Place.findById(placeId)
+
+    res.json(place)
+  } catch (error) {
+    res.status(400).json(`Getting place error: ${error.message}`)
+  }
+}
+
 export const delete_place = async (req: any, res: any) => {
   try {
     const { placeId } = req.params
