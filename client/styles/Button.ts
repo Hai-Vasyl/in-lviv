@@ -17,6 +17,11 @@ export default StyleSheet.create({
   },
   wrapperPrimary: {
     backgroundColor: "#333",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
   },
   textPrimary: {
     color: "white",

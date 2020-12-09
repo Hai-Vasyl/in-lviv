@@ -5,6 +5,9 @@ import Tabs from "../components/Tabs"
 import axios from "axios"
 import { IPlace } from "../interfaces"
 import styles from "../styles/Places"
+import ButtonLink from "../components/ButtonLink"
+import { useSelector } from "react-redux"
+import { RootStore } from "../redux/store"
 
 interface IPlacesProps {
   navigation: any
@@ -14,6 +17,9 @@ interface IPlacesProps {
 const Places: React.FC<IPlacesProps> = ({ navigation, route }) => {
   const [initLoad, setInitLoad] = useState(true)
   const [places, setPlaces] = useState<IPlace[]>([])
+  const {
+    auth: { user },
+  } = useSelector((state: RootStore) => state)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,6 +68,14 @@ const Places: React.FC<IPlacesProps> = ({ navigation, route }) => {
             )
           }}
         />
+        {user && user.role === "admin" && (
+          <View style={styles.btnCreate}>
+            <ButtonLink
+              iconName='plus'
+              press={() => navigation.navigate("PlaceCreate")}
+            />
+          </View>
+        )}
       </View>
       <Tabs route={route} navigation={navigation} />
     </View>

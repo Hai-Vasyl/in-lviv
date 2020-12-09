@@ -6,7 +6,10 @@ import axios from "axios"
 import { IPlaceExtended } from "../interfaces"
 import moment from "moment"
 import { ScrollView } from "react-native-gesture-handler"
+import ButtonLink from "../components/ButtonLink"
+import { useSelector } from "react-redux"
 import styles from "../styles/Place"
+import { RootStore } from "../redux/store"
 
 interface IPlaceProps {
   navigation: any
@@ -15,6 +18,9 @@ interface IPlaceProps {
 
 const Place: React.FC<IPlaceProps> = ({ navigation, route }) => {
   const { placeId } = route.params
+  const {
+    auth: { user },
+  } = useSelector((state: RootStore) => state)
   const [initLoad, setInitLoad] = useState(true)
   const [place, setPlace] = useState<IPlaceExtended>({
     _id: "",
@@ -53,8 +59,26 @@ const Place: React.FC<IPlaceProps> = ({ navigation, route }) => {
       <ScrollView contentContainerStyle={styleBase.container}>
         <View>
           <Image source={{ uri: place.image }} style={styles.image} />
-          <View>
-            <Text style={styles.title}>{place.title}</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <View>
+              <Text style={styles.title}>{place.title}</Text>
+            </View>
+            {user && user.role === "admin" && (
+              <ButtonLink
+                iconName='circle-edit-outline'
+                press={() =>
+                  navigation.navigate("PlaceEdit", {
+                    placeId,
+                  })
+                }
+              />
+            )}
           </View>
           <View>
             <Text style={styles.subTitle}>Description:</Text>

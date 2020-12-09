@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import Auth from "../screens/Auth"
 import About from "../screens/About"
-import CreatePlace from "../screens/CreatePlace"
-import EditPlace from "../screens/EditPlace"
+import PlaceCreate from "../screens/PlaceCreate"
+import PlaceEdit from "../screens/PlaceEdit"
 import Home from "../screens/Home"
 import Place from "../screens/Place"
 import Places from "../screens/Places"
@@ -43,8 +43,8 @@ const Routes = () => {
 
   const adminRoutes = [
     ...mainRoutes,
-    { name: "CreatePlace", component: CreatePlace },
-    { name: "EditPlace", component: EditPlace },
+    { name: "PlaceCreate", component: PlaceCreate },
+    { name: "PlaceEdit", component: PlaceEdit },
     { name: "UserEdit", component: UserEdit },
   ]
 

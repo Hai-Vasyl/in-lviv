@@ -11,6 +11,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 10,
+    marginHorizontal: 10,
   },
   subTitle: {
     fontSize: 17,

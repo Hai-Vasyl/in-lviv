@@ -2,28 +2,21 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
   wrapper: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flexDirection: "row",
-    alignItems: "center",
-    borderTopWidth: 1,
+    width: 45,
+    height: 45,
+    borderWidth: 1,
     borderColor: "lightgrey",
     backgroundColor: "white",
+    borderRadius: 45 / 2,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
     shadowRadius: 0,
-    elevation: 10,
-  },
-  tab: {
-    paddingVertical: 17,
-    flex: 1,
-    borderLeftWidth: 1,
-    borderColor: "lightgrey",
+    elevation: 4,
   },
   icon: {
     textAlign: "center",
+    lineHeight: 43,
+    fontSize: 22,
   },
 })

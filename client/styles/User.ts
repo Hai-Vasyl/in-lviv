@@ -17,6 +17,11 @@ export default StyleSheet.create({
     borderRadius: 210 / 2,
     textAlign: "center",
     backgroundColor: "whitesmoke",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 5,
   },
   avaContainer: {
     position: "relative",
@@ -29,6 +34,11 @@ export default StyleSheet.create({
     borderRadius: 210 / 2,
     marginBottom: 15,
     backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 10,
   },
   avatar: {
     width: 195,

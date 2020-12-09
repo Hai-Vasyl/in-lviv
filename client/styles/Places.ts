@@ -23,4 +23,11 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "lightgrey",
   },
+  btnCreate: {
+    alignItems: "center",
+    position: "absolute",
+    bottom: 80,
+    zIndex: 3,
+    right: 15,
+  },
 })
