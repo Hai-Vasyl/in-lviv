@@ -68,7 +68,6 @@ export const delete_place = async (req: any, res: any) => {
   try {
     const { placeId } = req.params
 
-    // TODO: NOT COMPLETED
     await Place.findByIdAndDelete(placeId)
 
     res.json({ message: "Place deleted successfully!" })
