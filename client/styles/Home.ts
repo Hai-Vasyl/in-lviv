@@ -12,7 +12,7 @@ export default StyleSheet.create({
   logoText: {
     fontSize: 36,
     fontWeight: "bold",
-    marginLeft: 10,
+    marginHorizontal: 10,
   },
   logoTextAccent: {
     color: "red",

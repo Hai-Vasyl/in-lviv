@@ -17,6 +17,7 @@ import { RootStore } from "../redux/store"
 interface IRoute {
   name: string
   component: any
+  title: string
 }
 
 const Stack = createStackNavigator()
@@ -27,30 +28,50 @@ const Routes = () => {
   } = useSelector((state: RootStore) => state)
 
   const reduceMapRoutes = (routes: IRoute[]) => {
-    return routes.map(({ name, component }) => (
-      <Stack.Screen key={name} name={name} component={component} />
+    return routes.map(({ name, component, title }) => (
+      <Stack.Screen
+        key={name}
+        name={name}
+        component={component}
+        options={{
+          title,
+          headerStyle: {
+            backgroundColor: "#5a82f8",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
     ))
   }
 
   const mainRoutes = [
-    { name: "Home", component: Home },
-    { name: "About", component: About },
-    { name: "Place", component: Place },
-    { name: "Places", component: Places },
-    { name: "User", component: User },
-    { name: "Users", component: Users },
+    { name: "Home", component: Home, title: "Home" },
+    { name: "About", component: About, title: "About" },
+    { name: "Place", component: Place, title: "Place" },
+    { name: "Places", component: Places, title: "All Places" },
+    { name: "User", component: User, title: "Profile" },
+    { name: "Users", component: Users, title: "All Users" },
   ]
 
   const adminRoutes = [
     ...mainRoutes,
-    { name: "PlaceCreate", component: PlaceCreate },
-    { name: "PlaceEdit", component: PlaceEdit },
-    { name: "UserEdit", component: UserEdit },
+    { name: "PlaceCreate", component: PlaceCreate, title: "Create Place" },
+    { name: "PlaceEdit", component: PlaceEdit, title: "Edit Place" },
+    { name: "UserEdit", component: UserEdit, title: "Edit User" },
   ]
 
-  const userRoutes = [...mainRoutes, { name: "UserEdit", component: UserEdit }]
+  const userRoutes = [
+    ...mainRoutes,
+    { name: "UserEdit", component: UserEdit, title: "Edit User" },
+  ]
 
-  const unRegRouter = [...mainRoutes, { name: "Auth", component: Auth }]
+  const unRegRouter = [
+    ...mainRoutes,
+    { name: "Auth", component: Auth, title: "Authorization" },
+  ]
 
   return (
     <NavigationContainer>

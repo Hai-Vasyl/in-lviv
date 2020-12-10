@@ -10,6 +10,7 @@ import imgMain from "../images/undraw_quite_town_mg2q.png"
 // @ts-ignore
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import Tabs from "../components/Tabs"
+import ButtonLink from "../components/ButtonLink"
 
 interface IHomeProps {
   navigation: any
@@ -41,6 +42,10 @@ const Home: React.FC<IHomeProps> = ({ route, navigation }) => {
               In-
               <Text style={styles.logoTextAccent}>Lviv</Text>
             </Text>
+            <ButtonLink
+              iconName='information-outline'
+              press={() => navigation.navigate("About")}
+            />
           </View>
           <Image source={imgMain} style={styles.image} />
         </View>
