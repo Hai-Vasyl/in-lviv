@@ -9,6 +9,7 @@ import { RootStore } from "../redux/store"
 // @ts-ignore
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import moment from "moment"
+import ButtonLink from "../components/ButtonLink"
 
 interface IUserProps {
   navigation: any
@@ -110,6 +111,17 @@ const User: React.FC<IUserProps> = ({ route, navigation }) => {
     <View style={[styleBase.wrapper]}>
       <View style={[styleBase.container, styles.container]}>
         <View style={styles.avaContainer}>
+          {user && user._id === userId && (
+            <ButtonLink
+              iconName='circle-edit-outline'
+              exStyle={styles.btnLink}
+              press={() =>
+                navigation.navigate("UserEdit", {
+                  userId,
+                })
+              }
+            />
+          )}
           <Image source={{ uri: exUserData.ava }} style={styles.avatar} />
           {exUserData.role === "admin" && (
             <Icon

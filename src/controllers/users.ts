@@ -116,3 +116,23 @@ export const get_users = async (req: any, res: any) => {
     res.status(400).json(`Getting users error: ${error.message}`)
   }
 }
+
+export const update_user = async (req: any, res: any) => {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
+    const { userId } = req
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { ...req.body, date: new Date() },
+      { new: true }
+    )
+    res.json(user)
+  } catch (error) {
+    res.status(400).json(`Updating user info error: ${error.message}`)
+  }
+}

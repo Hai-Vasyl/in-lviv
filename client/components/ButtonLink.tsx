@@ -6,12 +6,17 @@ import styles from "../styles/ButtonLink"
 
 interface IButtonLinkProps {
   iconName: string
+  exStyle?: { [key: string]: any }
   press(event: GestureResponderEvent): void | undefined
 }
 
-const ButtonLink: React.FC<IButtonLinkProps> = ({ iconName, press }) => {
+const ButtonLink: React.FC<IButtonLinkProps> = ({
+  iconName,
+  press,
+  exStyle,
+}) => {
   return (
-    <TouchableOpacity style={styles.wrapper} onPress={press}>
+    <TouchableOpacity style={[styles.wrapper, exStyle]} onPress={press}>
       <Icon style={styles.icon} name={iconName} size={20} color='grey' />
     </TouchableOpacity>
   )

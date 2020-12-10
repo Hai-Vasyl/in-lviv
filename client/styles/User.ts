@@ -62,4 +62,10 @@ export default StyleSheet.create({
   plugText: {
     color: "lightgrey",
   },
+  btnLink: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    zIndex: 5,
+  },
 })

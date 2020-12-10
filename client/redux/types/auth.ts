@@ -3,6 +3,7 @@ export const FETCH_SUCCESS_AUTH = "FETCH_SUCCESS_AUTH"
 export const FETCH_FAILURE_AUTH = "FETCH_FAILURE_AUTH"
 export const CLEAR_ERROR_AUTH = "CLEAR_ERROR_AUTH"
 export const RESET_ERRORS_AUTH = "RESET_ERRORS_AUTH"
+export const UPDATE_AUTH = "UPDATE_AUTH"
 
 export interface IUser {
   _id: string
@@ -52,6 +53,11 @@ export interface resetErrorsAuth {
   type: typeof RESET_ERRORS_AUTH
 }
 
+export interface updateAuth {
+  type: typeof UPDATE_AUTH
+  payload: IUser
+}
+
 export type DispatchActionsFetch =
   | fetchStartAuth
   | fetchSuccessAuth
@@ -60,3 +66,4 @@ export type typeDispatchActions =
   | DispatchActionsFetch
   | clearErrorAuth
   | resetErrorsAuth
+  | updateAuth

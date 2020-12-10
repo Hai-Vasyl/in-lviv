@@ -5,7 +5,9 @@ import {
   login_user,
   get_user,
   get_users,
+  update_user,
 } from "../controllers/users"
+import auth from "../middlewares/auth.middleware"
 const router = Router()
 
 router.post(
@@ -36,5 +38,17 @@ router.post(
 router.get("/get-user/:userId", get_user)
 
 router.get("/get-users", get_users)
+
+router.post(
+  "/update-user",
+  auth,
+  [
+    check("username")
+      .isLength({ min: 4, max: 15 })
+      .withMessage("Username must be at least 4 to 15 characters long!"),
+    check("email").isEmail().withMessage("Email is not correct!"),
+  ],
+  update_user
+)
 
 export default router

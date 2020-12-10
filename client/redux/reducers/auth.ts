@@ -5,6 +5,7 @@ import {
   CLEAR_ERROR_AUTH,
   RESET_ERRORS_AUTH,
   typeDispatchActions,
+  UPDATE_AUTH,
   IAuth,
   IError,
 } from "../types/auth"
@@ -75,6 +76,11 @@ const authReducer = (
         errors: [...state.errors].map((err) => {
           return { ...err, msg: "" }
         }),
+      }
+    case UPDATE_AUTH:
+      return {
+        ...state,
+        user: action.payload,
       }
     default:
       return state
